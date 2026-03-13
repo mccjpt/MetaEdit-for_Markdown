@@ -1,0 +1,9 @@
+_getTime()
+
+@dateTime = __(internal 'getVar: dateTime' read)
+if not @dateTime then
+	@dateTime = __(external 'echo %date%' read)
+endif
+
+/* keep in locale format, remove extra line */
+do @dateTime where id {id}

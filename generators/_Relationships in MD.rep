@@ -1,0 +1,26 @@
+Report '_Relationships in MD'
+
+if id then
+	'**' id%trunc80 '** '
+endif
+'relationships:' newline
+if ~() then  
+	/* Table begins */
+	'| In role | In relationship | With objects(s) | In role |' newline
+	'|:---|:---|:---|:---|' newline
+	do ~() {
+		@sep = ''
+		'|' subreport '__md_id and type' run 
+		'|' do >() { subreport '__id and type' run } '|'
+		dowhile ~()	{
+			@sep	
+			do .() {	'[' id%md '](#' oid ')|' }
+			subreport '__md_id and type' run '|' newline
+			@sep = '| | |'
+		}
+	}
+else 
+	'none'
+endif
+newline newline
+endreport

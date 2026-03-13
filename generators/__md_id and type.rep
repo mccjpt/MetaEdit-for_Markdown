@@ -1,0 +1,8 @@
+Report '__md_id and type'
+if id = type then 
+	': ' type%md
+else 
+	id%md%trunc80 ': ' type%md newline
+endif
+
+endreport

@@ -1,0 +1,20 @@
+_MD\ TOC()
+
+if not $Graphs =~ oid%wildsp then
+	variable 'Graphs' append oid ' ' close
+	'- [' id%md ': ' type%md '](#' oid ')' newline
+	/* Subgraphs */
+	foreach .()	{
+		if decompositions then
+			dowhile decompositions {
+				_MD\ TOC()
+			}
+		endif
+		if explosions then
+			dowhile explosions {
+				_MD\ TOC()
+			}
+		endif
+}
+endif
+

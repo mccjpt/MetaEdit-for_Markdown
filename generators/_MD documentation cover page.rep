@@ -1,0 +1,7 @@
+_MD\ documentation\ cover\ page()
+
+'# ' id ' Documentation report' newline newline
+
+'**Filename:** 'id%file '.md '
+'**Date:** ' _getTime() newline
+

@@ -1,0 +1,27 @@
+_propsDeeplyInMD()
+
+do :() {
+	'|' containers '|'
+	@skip = _skipPropRecursion()
+	if contents then
+		@sep = ''
+		dowhile contents {
+			@sep
+			if @skip or metatype = 'Text' or metatype = 'String' then
+				id%md 
+			else
+				'[' id%md '](#' oid ')'
+			endif
+			@sep = __(if metatype <> 'Text' then ', ' endif)
+		} 
+	else
+		id%md
+	endif
+	'|'
+	newline
+	if not @skip then
+		do contents where metatype <> 'Text' and metatype <> 'String'
+		{	_extraTypesInMD() 
+		}
+	endif
+}

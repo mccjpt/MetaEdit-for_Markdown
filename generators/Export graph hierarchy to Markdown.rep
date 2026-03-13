@@ -1,0 +1,14 @@
+Report 'Export graph hierarchy to Markdown'
+/*	Creates markdown file for the graph which also follows its submodel hierarchy (decompositions & explosions) */
+
+_MD_translators()
+filename subreport '_default directory' run id%file '.md' write
+	subreport '_MD documentation cover page' run newline
+	'**Table of contents:**' newline
+	$Graphs=' ' /* report graph only once */
+	subreport '_MD TOC' run
+	$Graphs=' ' /* report graph only once */
+	subreport '_graph information in MD' run 
+close
+/* external '"' subreport '_default directory' run  id%file '.md"' execute */
+endreport

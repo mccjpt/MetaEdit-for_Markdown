@@ -1,0 +1,14 @@
+Report '_extraTypesInMD'
+
+if not ($extraObjects =~ oid%wildsp) and not ($mainObjects =~ oid%wildsp) then
+	variable 'extraObjects' append oid ' ' close
+	variable oid '_md' write
+		'<a id="' oid '"></a>' newline
+		'**' id%md '**: ' type newline
+		'| Property | Value |' newline
+		'|:---|:---|' newline
+		_propsDeeplyInMD()
+		newline
+	close 
+endif
+endreport

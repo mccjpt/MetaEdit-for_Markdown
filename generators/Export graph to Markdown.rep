@@ -1,0 +1,11 @@
+Report 'Export graph to Markdown'
+/*	Creates markdown file for the single graph */
+
+_MD_translators()
+filename subreport '_default directory' run id%file '.md' write
+	subreport '_MD documentation cover page' run
+	subreport '_Dictionary in MD' run
+	subreport '_Object properties in MD' run
+close
+/* external '"' subreport '_default directory' run  id%file '.md"' execute */
+endreport

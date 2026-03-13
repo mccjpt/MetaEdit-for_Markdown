@@ -1,0 +1,26 @@
+Report '_Dictionary in MD'
+
+variable 'mainObjects' write
+	' '
+	foreach .() { oid ' ' }
+close
+variable 'extraObjects' write ' ' close
+'<a id="' oid '"></a>' newline	
+'## ' id%md ': ' type%md newline
+'Graph properties:
+| Property | Value |
+|:---|:---|' newline
+_propsDeeplyInMD()
+newline
+'**Diagram picture:** ' id newline newline
+filename subreport '_default directory' run oid '.png' print
+'![' id%md ' image](' oid '.png "Image of ' id%md '")' newline
+newline
+'**Graph dictionary**
+| Object | Type | Documentation |
+|:---|:---|:---|' newline
+foreach .() {
+	'| [' if id then id%md else '-' endif '](#' oid ') | ' type ' | ' dowhile :Documentation {id%md; ' '} dowhile :Description {id%md; ' '} ' |' newline
+	}
+
+endreport

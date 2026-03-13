@@ -1,0 +1,23 @@
+Report '_graph information in MD'
+
+if not $Graphs =~ oid%wildsp then
+	variable 'Graphs' append oid ' ' close
+	newline
+	subreport '_Dictionary in MD' run
+	subreport '_Object properties in MD' run
+	/* Subgraphs */
+	foreach .()
+	{
+		if decompositions then
+			dowhile decompositions {
+				subreport '_graph information in MD' run 
+			}
+		endif
+		if explosions then
+			dowhile explosions {
+				subreport '_graph information in MD' run 
+			}
+		endif
+}
+endif
+endreport

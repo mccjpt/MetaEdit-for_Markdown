@@ -1,0 +1,30 @@
+Report '_Links in MD'
+
+if id then
+	'**' id%md%trunc80 '** subgraph links'
+endif
+
+if decompositions or explosions then
+	newline 
+	'| Link type	| Graph''s name |' newline
+	'|:---|:---|' newline
+	'| Decomposition | '
+	if decompositions then
+		do decompositions	{ '[' id%md '](#' oid ')' }
+	else
+ 		'none'
+	endif
+	'|' newline
+	'| Explosions | '
+	if explosions then
+		dowhile explosions  { '[' id%md '](#' oid ')' ', '} 
+		')'
+	else
+  		'none'
+	endif
+	'|' newline
+else
+	': none' newline
+endif
+newline
+endreport

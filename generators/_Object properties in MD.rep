@@ -1,0 +1,22 @@
+Report '_Object properties in MD'
+
+foreach .() {
+	'<a id="' oid '"></a>' newline	
+	'### ' id%md%trunc80 ': ' type newline
+	'Properties:' newline
+	@propertiesFound = 'F'
+	do :() {	@propertiesFound = 'T' }
+	if @propertiesFound = 'T' then
+		'| Property | Value |' newline
+		'|:---|:---|' newline
+		_propsDeeplyInMD()
+	else
+		'none' newline
+	endif
+	newline
+	subreport '_Relationships in MD' run
+	subreport '_Links in MD' run
+}
+_reportExtraObjectsInMD()
+
+endreport

@@ -1,0 +1,10 @@
+_reportExtraObjectsInMD()
+/* Reports all the extra objects in the model */
+
+'**Sub-objects:**' newline newline
+if $extraObjects <> ' ' then
+	do $extraObjects%spaceToNewline where id
+	{ variable id '_md' read }
+else
+	'none'
+endif
