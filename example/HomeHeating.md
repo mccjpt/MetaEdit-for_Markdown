@@ -407,18 +407,12 @@ Properties:
 **B1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|lrTempSetpointHigh: Boiler condition
-|: Condition|[\>=](#15_436)|: Right|
-|lrTempSetpointLow: Boiler condition
-|: Condition|[\<=](#15_1090)|: Right|
-|DontWarmUp: Heat exchanger action
-|: Transition|[\>=](#15_436)|F: Condition
-|
+|lrTempSetpointHigh: Boiler condition|: Condition|[\>=](#15_436)|: Right|
+|lrTempSetpointLow: Boiler condition|: Condition|[\<=](#15_1090)|: Right|
+|DontWarmUp: Heat exchanger action|: Transition|[\>=](#15_436)|F: Condition|
 | | |[Monitor boiler](#15_603)|: From|
 | | |[Monitor boiler](#15_603)|: To|
-|DoWarmUp: Heat exchanger action
-|: Transition|[\<=](#15_1090)|F: Condition
-|
+|DoWarmUp: Heat exchanger action|: Transition|[\<=](#15_1090)|F: Condition|
 | | |[Monitor boiler](#15_603)|: From|
 | | |[Monitor boiler](#15_603)|: To|
 
@@ -435,15 +429,11 @@ Properties:
 **<=** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|F: Condition
-|: Transition|[Monitor boiler](#15_603)|: From|
-| | |[B1](#15_569)|DoWarmUp: Heat exchanger action
-|
+|F: Condition|: Transition|[Monitor boiler](#15_603)|: From|
+| | |[B1](#15_569)|DoWarmUp: Heat exchanger action|
 | | |[Monitor boiler](#15_603)|: To|
-|: Left|: Condition|[B1 TS2](#15_544)|lrTemperature: Sensor condition
-|
-|: Right|: Condition|[B1](#15_569)|lrTempSetpointLow: Boiler condition
-|
+|: Left|: Condition|[B1 TS2](#15_544)|lrTemperature: Sensor condition|
+|: Right|: Condition|[B1](#15_569)|lrTempSetpointLow: Boiler condition|
 
 
 **\<=** subgraph links: none
@@ -458,15 +448,11 @@ Properties:
 **>=** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|F: Condition
-|: Transition|[Monitor boiler](#15_603)|: From|
-| | |[B1](#15_569)|DontWarmUp: Heat exchanger action
-|
+|F: Condition|: Transition|[Monitor boiler](#15_603)|: From|
+| | |[B1](#15_569)|DontWarmUp: Heat exchanger action|
 | | |[Monitor boiler](#15_603)|: To|
-|: Left|: Condition|[B1 TS2](#15_544)|lrTemperature: Sensor condition
-|
-|: Right|: Condition|[B1](#15_569)|lrTempSetpointHigh: Boiler condition
-|
+|: Left|: Condition|[B1 TS2](#15_544)|lrTemperature: Sensor condition|
+|: Right|: Condition|[B1](#15_569)|lrTempSetpointHigh: Boiler condition|
 
 
 **\>=** subgraph links: none
@@ -484,10 +470,8 @@ Properties:
 **B1 TS2** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|lrTemperature: Sensor condition
-|: Condition|[\>=](#15_436)|: Left|
-|lrTemperature: Sensor condition
-|: Condition|[\<=](#15_1090)|: Left|
+|lrTemperature: Sensor condition|: Condition|[\>=](#15_436)|: Left|
+|lrTemperature: Sensor condition|: Condition|[\<=](#15_1090)|: Left|
 
 
 **B1 TS2** subgraph links: none
@@ -533,27 +517,19 @@ Properties:
 **Monitor boiler** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: From|: Transition|[\>=](#15_436)|F: Condition
-|
-| | |[B1](#15_569)|DontWarmUp: Heat exchanger action
-|
+|: From|: Transition|[\>=](#15_436)|F: Condition|
+| | |[B1](#15_569)|DontWarmUp: Heat exchanger action|
 | | |[Monitor boiler](#15_603)|: To|
-|: From|: Transition|[\<=](#15_1090)|F: Condition
-|
-| | |[B1](#15_569)|DoWarmUp: Heat exchanger action
-|
+|: From|: Transition|[\<=](#15_1090)|F: Condition|
+| | |[B1](#15_569)|DoWarmUp: Heat exchanger action|
 | | |[Monitor boiler](#15_603)|: To|
-|: To|: Transition|[\>=](#15_436)|F: Condition
-|
+|: To|: Transition|[\>=](#15_436)|F: Condition|
 | | |[Monitor boiler](#15_603)|: From|
-| | |[B1](#15_569)|DontWarmUp: Heat exchanger action
-|
+| | |[B1](#15_569)|DontWarmUp: Heat exchanger action|
 |: To|: Transition|[Initializing](#15_1288)|: From|
-|: To|: Transition|[\<=](#15_1090)|F: Condition
-|
+|: To|: Transition|[\<=](#15_1090)|F: Condition|
 | | |[Monitor boiler](#15_603)|: From|
-| | |[B1](#15_569)|DoWarmUp: Heat exchanger action
-|
+| | |[B1](#15_569)|DoWarmUp: Heat exchanger action|
 
 
 **Monitor boiler** subgraph links: none
@@ -596,8 +572,7 @@ Properties:
 **B1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|bWarmUp: Boiler condition
-|: Condition|[OR](#15_450)|: Cond|
+|bWarmUp: Boiler condition|: Condition|[OR](#15_450)|: Cond|
 
 
 **B1** subgraph links: none
@@ -612,18 +587,12 @@ Properties:
 **HU1 B1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|Off: Action
-|: Entry action|[Initializing](#15_847)|: State entry exit|
-| | |[HU1 CV2](#15_400)|Close: Valve action
-|
-|Off: Action
-|: Exit action|[control burner](#15_677)|: State entry exit|
-| | |[HU1 CV2](#15_400)|Close: Valve action
-|
-|On: Action
-|: Entry action|[control burner](#15_677)|: State entry exit|
-| | |[HU1 CV2](#15_400)|Open: Valve action
-|
+|Off: Action|: Entry action|[Initializing](#15_847)|: State entry exit|
+| | |[HU1 CV2](#15_400)|Close: Valve action|
+|Off: Action|: Exit action|[control burner](#15_677)|: State entry exit|
+| | |[HU1 CV2](#15_400)|Close: Valve action|
+|On: Action|: Entry action|[control burner](#15_677)|: State entry exit|
+| | |[HU1 CV2](#15_400)|Open: Valve action|
 
 
 **HU1 B1** subgraph links: none
@@ -638,15 +607,11 @@ Properties:
 **OR** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition
-|
-|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition
-|
-|F: Condition
-|: Transition|[Wait for heat request](#15_1015)|: From|
+|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition|
+|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition|
+|F: Condition|: Transition|[Wait for heat request](#15_1015)|: From|
 | | |[control burner](#15_677)|: To|
-|T: Condition
-|: Transition|[control burner](#15_677)|: From|
+|T: Condition|: Transition|[control burner](#15_677)|: From|
 | | |[Wait for heat request](#15_1015)|: To|
 
 
@@ -662,8 +627,7 @@ Properties:
 **R1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|bWarmUp: Radiator condition
-|: Condition|[OR](#15_450)|: Cond|
+|bWarmUp: Radiator condition|: Condition|[OR](#15_450)|: Cond|
 
 
 **R1** subgraph links: none
@@ -692,19 +656,13 @@ Properties:
 **control burner** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: From|: Transition|[OR](#15_450)|T: Condition
-|
+|: From|: Transition|[OR](#15_450)|T: Condition|
 | | |[Wait for heat request](#15_1015)|: To|
-|: State entry exit|: Exit action|[HU1 B1](#15_1114)|Off: Action
-|
-| | |[HU1 CV2](#15_400)|Close: Valve action
-|
-|: State entry exit|: Entry action|[HU1 B1](#15_1114)|On: Action
-|
-| | |[HU1 CV2](#15_400)|Open: Valve action
-|
-|: To|: Transition|[OR](#15_450)|F: Condition
-|
+|: State entry exit|: Exit action|[HU1 B1](#15_1114)|Off: Action|
+| | |[HU1 CV2](#15_400)|Close: Valve action|
+|: State entry exit|: Entry action|[HU1 B1](#15_1114)|On: Action|
+| | |[HU1 CV2](#15_400)|Open: Valve action|
+|: To|: Transition|[OR](#15_450)|F: Condition|
 | | |[Wait for heat request](#15_1015)|: From|
 
 
@@ -722,10 +680,8 @@ Properties:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
 |: From|: Transition|[Wait for heat request](#15_1015)|: To|
-|: State entry exit|: Entry action|[HU1 B1](#15_1114)|Off: Action
-|
-| | |[HU1 CV2](#15_400)|Close: Valve action
-|
+|: State entry exit|: Entry action|[HU1 B1](#15_1114)|Off: Action|
+| | |[HU1 CV2](#15_400)|Close: Valve action|
 |: To|: Transition|[Start](#15_929)|: From|
 
 
@@ -742,11 +698,9 @@ Properties:
 **Wait for heat request** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: From|: Transition|[OR](#15_450)|F: Condition
-|
+|: From|: Transition|[OR](#15_450)|F: Condition|
 | | |[control burner](#15_677)|: To|
-|: To|: Transition|[OR](#15_450)|T: Condition
-|
+|: To|: Transition|[OR](#15_450)|T: Condition|
 | | |[control burner](#15_677)|: From|
 |: To|: Transition|[Initializing](#15_847)|: From|
 
@@ -766,17 +720,11 @@ Properties:
 **HU1 CV2** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|Close: Valve action
-|: Exit action|[HU1 B1](#15_1114)|Off: Action
-|
+|Close: Valve action|: Exit action|[HU1 B1](#15_1114)|Off: Action|
 | | |[control burner](#15_677)|: State entry exit|
-|Close: Valve action
-|: Entry action|[HU1 B1](#15_1114)|Off: Action
-|
+|Close: Valve action|: Entry action|[HU1 B1](#15_1114)|Off: Action|
 | | |[Initializing](#15_847)|: State entry exit|
-|Open: Valve action
-|: Entry action|[HU1 B1](#15_1114)|On: Action
-|
+|Open: Valve action|: Entry action|[HU1 B1](#15_1114)|On: Action|
 | | |[control burner](#15_677)|: State entry exit|
 
 
@@ -816,14 +764,10 @@ Properties:
 **HU1 B1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|bFlameDetected: Burner condition
-|: Transition|[P1](#15_1256)|On: Action
-|
+|bFlameDetected: Burner condition|: Transition|[P1](#15_1256)|On: Action|
 | | |[Control Pump](#15_1056)|: From|
 | | |[Control Pump](#15_1056)|: To|
-|bFlameDetected: Burner condition
-|: Transition|[P1](#15_1256)|Off: Action
-|
+|bFlameDetected: Burner condition|: Transition|[P1](#15_1256)|Off: Action|
 | | |[Control Pump](#15_1056)|: From|
 | | |[Control Pump](#15_1056)|: To|
 
@@ -841,14 +785,10 @@ Properties:
 **P1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|Off: Action
-|: Transition|[HU1 B1](#15_1114)|bFlameDetected: Burner condition
-|
+|Off: Action|: Transition|[HU1 B1](#15_1114)|bFlameDetected: Burner condition|
 | | |[Control Pump](#15_1056)|: From|
 | | |[Control Pump](#15_1056)|: To|
-|On: Action
-|: Transition|[HU1 B1](#15_1114)|bFlameDetected: Burner condition
-|
+|On: Action|: Transition|[HU1 B1](#15_1114)|bFlameDetected: Burner condition|
 | | |[Control Pump](#15_1056)|: From|
 | | |[Control Pump](#15_1056)|: To|
 
@@ -879,26 +819,18 @@ Properties:
 **Control Pump** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: From|: Transition|[P1](#15_1256)|On: Action
-|
-| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition
-|
+|: From|: Transition|[P1](#15_1256)|On: Action|
+| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition|
 | | |[Control Pump](#15_1056)|: To|
-|: From|: Transition|[P1](#15_1256)|Off: Action
-|
-| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition
-|
+|: From|: Transition|[P1](#15_1256)|Off: Action|
+| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition|
 | | |[Control Pump](#15_1056)|: To|
 |: To|: Transition|[Initializing](#15_810)|: From|
-|: To|: Transition|[P1](#15_1256)|On: Action
-|
-| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition
-|
+|: To|: Transition|[P1](#15_1256)|On: Action|
+| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition|
 | | |[Control Pump](#15_1056)|: From|
-|: To|: Transition|[P1](#15_1256)|Off: Action
-|
-| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition
-|
+|: To|: Transition|[P1](#15_1256)|Off: Action|
+| | |[HU1 B1](#15_1114)|bFlameDetected: Burner condition|
 | | |[Control Pump](#15_1056)|: From|
 
 
@@ -957,15 +889,11 @@ Properties:
 **<=** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|F: Condition
-|: Transition|[Monitor room temperature](#15_1219)|: From|
-| | |[R1](#15_1305)|DoWarmUp: Heat exchanger action
-|
+|F: Condition|: Transition|[Monitor room temperature](#15_1219)|: From|
+| | |[R1](#15_1305)|DoWarmUp: Heat exchanger action|
 | | |[Monitor room temperature](#15_1219)|: To|
-|: Left|: Condition|[TH1](#15_1139)|lrRoomTemperature: Thermostat condition
-|
-|: Right|: Condition|[TH1](#15_1139)|lrTempSetpointLow: Thermostat condition
-|
+|: Left|: Condition|[TH1](#15_1139)|lrRoomTemperature: Thermostat condition|
+|: Right|: Condition|[TH1](#15_1139)|lrTempSetpointLow: Thermostat condition|
 
 
 **\<=** subgraph links: none
@@ -980,15 +908,11 @@ Properties:
 **>=** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|F: Condition
-|: Transition|[Monitor room temperature](#15_1219)|: From|
-| | |[R1](#15_1305)|DontWarmUp: Heat exchanger action
-|
+|F: Condition|: Transition|[Monitor room temperature](#15_1219)|: From|
+| | |[R1](#15_1305)|DontWarmUp: Heat exchanger action|
 | | |[Monitor room temperature](#15_1219)|: To|
-|: Left|: Condition|[TH1](#15_1139)|lrRoomTemperature: Thermostat condition
-|
-|: Right|: Condition|[TH1](#15_1139)|lrTempSetPointHigh: Thermostat condition
-|
+|: Left|: Condition|[TH1](#15_1139)|lrRoomTemperature: Thermostat condition|
+|: Right|: Condition|[TH1](#15_1139)|lrTempSetPointHigh: Thermostat condition|
 
 
 **\>=** subgraph links: none
@@ -1003,14 +927,10 @@ Properties:
 **R1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|DontWarmUp: Heat exchanger action
-|: Transition|[\>=](#15_927)|F: Condition
-|
+|DontWarmUp: Heat exchanger action|: Transition|[\>=](#15_927)|F: Condition|
 | | |[Monitor room temperature](#15_1219)|: From|
 | | |[Monitor room temperature](#15_1219)|: To|
-|DoWarmUp: Heat exchanger action
-|: Transition|[\<=](#15_1388)|F: Condition
-|
+|DoWarmUp: Heat exchanger action|: Transition|[\<=](#15_1388)|F: Condition|
 | | |[Monitor room temperature](#15_1219)|: From|
 | | |[Monitor room temperature](#15_1219)|: To|
 
@@ -1058,27 +978,19 @@ Properties:
 **Monitor room temperature** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: From|: Transition|[\<=](#15_1388)|F: Condition
-|
-| | |[R1](#15_1305)|DoWarmUp: Heat exchanger action
-|
+|: From|: Transition|[\<=](#15_1388)|F: Condition|
+| | |[R1](#15_1305)|DoWarmUp: Heat exchanger action|
 | | |[Monitor room temperature](#15_1219)|: To|
-|: From|: Transition|[\>=](#15_927)|F: Condition
-|
-| | |[R1](#15_1305)|DontWarmUp: Heat exchanger action
-|
+|: From|: Transition|[\>=](#15_927)|F: Condition|
+| | |[R1](#15_1305)|DontWarmUp: Heat exchanger action|
 | | |[Monitor room temperature](#15_1219)|: To|
-|: To|: Transition|[\>=](#15_927)|F: Condition
-|
+|: To|: Transition|[\>=](#15_927)|F: Condition|
 | | |[Monitor room temperature](#15_1219)|: From|
-| | |[R1](#15_1305)|DontWarmUp: Heat exchanger action
-|
+| | |[R1](#15_1305)|DontWarmUp: Heat exchanger action|
 |: To|: Transition|[Initializing](#15_492)|: From|
-|: To|: Transition|[\<=](#15_1388)|F: Condition
-|
+|: To|: Transition|[\<=](#15_1388)|F: Condition|
 | | |[Monitor room temperature](#15_1219)|: From|
-| | |[R1](#15_1305)|DoWarmUp: Heat exchanger action
-|
+| | |[R1](#15_1305)|DoWarmUp: Heat exchanger action|
 
 
 **Monitor room temperature** subgraph links: none
@@ -1094,14 +1006,10 @@ Properties:
 **TH1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|lrRoomTemperature: Thermostat condition
-|: Condition|[\<=](#15_1388)|: Left|
-|lrRoomTemperature: Thermostat condition
-|: Condition|[\>=](#15_927)|: Left|
-|lrTempSetPointHigh: Thermostat condition
-|: Condition|[\>=](#15_927)|: Right|
-|lrTempSetpointLow: Thermostat condition
-|: Condition|[\<=](#15_1388)|: Right|
+|lrRoomTemperature: Thermostat condition|: Condition|[\<=](#15_1388)|: Left|
+|lrRoomTemperature: Thermostat condition|: Condition|[\>=](#15_927)|: Left|
+|lrTempSetPointHigh: Thermostat condition|: Condition|[\>=](#15_927)|: Right|
+|lrTempSetpointLow: Thermostat condition|: Condition|[\<=](#15_1388)|: Right|
 
 
 **TH1** subgraph links: none
@@ -1144,12 +1052,9 @@ Properties:
 **B1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|bWarmUp: Boiler condition
-|: Condition|[AND](#15_404)|: Cond|
-|bWarmUp: Boiler condition
-|: Condition|[AND](#15_681)|: Cond|
-|bWarmUp: Boiler condition
-|: Condition|[AND](#15_886)|: Cond|
+|bWarmUp: Boiler condition|: Condition|[AND](#15_404)|: Cond|
+|bWarmUp: Boiler condition|: Condition|[AND](#15_681)|: Cond|
+|bWarmUp: Boiler condition|: Condition|[AND](#15_886)|: Cond|
 
 
 **B1** subgraph links: none
@@ -1164,15 +1069,11 @@ Properties:
 **AND** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition
-|
-|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition
-|
-|F: Condition
-|: Transition|[Control threevalve](#15_1354)|: From|
+|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition|
+|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition|
+|F: Condition|: Transition|[Control threevalve](#15_1354)|: From|
 | | |[Control threevalve](#15_1354)|: To|
-| | |[CV1](#15_946)|Open: Valve action
-|
+| | |[CV1](#15_946)|Open: Valve action|
 
 
 **AND** subgraph links: none
@@ -1187,15 +1088,11 @@ Properties:
 **AND** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition
-|
-|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition
-|
-|F: Condition
-|: Transition|[Control threevalve](#15_1354)|: From|
+|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition|
+|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition|
+|F: Condition|: Transition|[Control threevalve](#15_1354)|: From|
 | | |[Control threevalve](#15_1354)|: To|
-| | |[CV1](#15_946)|Open: Valve action
-|
+| | |[CV1](#15_946)|Open: Valve action|
 
 
 **AND** subgraph links: none
@@ -1210,15 +1107,11 @@ Properties:
 **AND** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition
-|
-|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition
-|
-|F: Condition
-|: Transition|[Control threevalve](#15_1354)|: From|
+|: Cond|: Condition|[R1](#15_1305)|bWarmUp: Radiator condition|
+|: Cond|: Condition|[B1](#15_569)|bWarmUp: Boiler condition|
+|F: Condition|: Transition|[Control threevalve](#15_1354)|: From|
 | | |[Control threevalve](#15_1354)|: To|
-| | |[CV1](#15_946)|Open: Valve action
-|
+| | |[CV1](#15_946)|Open: Valve action|
 
 
 **AND** subgraph links: none
@@ -1233,12 +1126,9 @@ Properties:
 **R1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|bWarmUp: Radiator condition
-|: Condition|[AND](#15_886)|: Cond|
-|bWarmUp: Radiator condition
-|: Condition|[AND](#15_404)|: Cond|
-|bWarmUp: Radiator condition
-|: Condition|[AND](#15_681)|: Cond|
+|bWarmUp: Radiator condition|: Condition|[AND](#15_886)|: Cond|
+|bWarmUp: Radiator condition|: Condition|[AND](#15_404)|: Cond|
+|bWarmUp: Radiator condition|: Condition|[AND](#15_681)|: Cond|
 
 
 **R1** subgraph links: none
@@ -1267,37 +1157,25 @@ Properties:
 **Control threevalve** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|: From|: Transition|[AND](#15_886)|F: Condition
-|
+|: From|: Transition|[AND](#15_886)|F: Condition|
 | | |[Control threevalve](#15_1354)|: To|
-| | |[CV1](#15_946)|Open: Valve action
-|
-|: From|: Transition|[AND](#15_681)|F: Condition
-|
+| | |[CV1](#15_946)|Open: Valve action|
+|: From|: Transition|[AND](#15_681)|F: Condition|
 | | |[Control threevalve](#15_1354)|: To|
-| | |[CV1](#15_946)|Open: Valve action
-|
-|: From|: Transition|[AND](#15_404)|F: Condition
-|
+| | |[CV1](#15_946)|Open: Valve action|
+|: From|: Transition|[AND](#15_404)|F: Condition|
 | | |[Control threevalve](#15_1354)|: To|
-| | |[CV1](#15_946)|Open: Valve action
-|
-|: To|: Transition|[AND](#15_404)|F: Condition
-|
+| | |[CV1](#15_946)|Open: Valve action|
+|: To|: Transition|[AND](#15_404)|F: Condition|
 | | |[Control threevalve](#15_1354)|: From|
-| | |[CV1](#15_946)|Open: Valve action
-|
+| | |[CV1](#15_946)|Open: Valve action|
 |: To|: Transition|[Initializing](#15_500)|: From|
-|: To|: Transition|[AND](#15_886)|F: Condition
-|
+|: To|: Transition|[AND](#15_886)|F: Condition|
 | | |[Control threevalve](#15_1354)|: From|
-| | |[CV1](#15_946)|Open: Valve action
-|
-|: To|: Transition|[AND](#15_681)|F: Condition
-|
+| | |[CV1](#15_946)|Open: Valve action|
+|: To|: Transition|[AND](#15_681)|F: Condition|
 | | |[Control threevalve](#15_1354)|: From|
-| | |[CV1](#15_946)|Open: Valve action
-|
+| | |[CV1](#15_946)|Open: Valve action|
 
 
 **Control threevalve** subgraph links: none
@@ -1332,19 +1210,13 @@ Properties:
 **CV1** relationships:
 | In role | In relationship | With objects(s) | In role |
 |:---|:---|:---|:---|
-|Open: Valve action
-|: Transition|[AND](#15_886)|F: Condition
-|
+|Open: Valve action|: Transition|[AND](#15_886)|F: Condition|
 | | |[Control threevalve](#15_1354)|: From|
 | | |[Control threevalve](#15_1354)|: To|
-|Open: Valve action
-|: Transition|[AND](#15_404)|F: Condition
-|
+|Open: Valve action|: Transition|[AND](#15_404)|F: Condition|
 | | |[Control threevalve](#15_1354)|: From|
 | | |[Control threevalve](#15_1354)|: To|
-|Open: Valve action
-|: Transition|[AND](#15_681)|F: Condition
-|
+|Open: Valve action|: Transition|[AND](#15_681)|F: Condition|
 | | |[Control threevalve](#15_1354)|: From|
 | | |[Control threevalve](#15_1354)|: To|
 
